@@ -1,42 +1,36 @@
-class HomeState {
-  bool isLoading;
-  final int counter;
-  final bool apptheme;
-  final bool active;
+import 'package:bloc/bloc.dart';
+import '../widgets/home_state.dart';
 
-  HomeState({
-    required this.isLoading,
-    required this.counter,
-    required this.apptheme,
-    required this.active,
-  });
-
-  factory HomeState.initial() => HomeState(isLoading: true, counter: 0, apptheme: true, active: false);
-
-  @override
-  bool operator ==(covariant HomeState other) {
-    if (identical(this, other)) return true;
-
-    return other.isLoading == isLoading && other.counter == counter && other.apptheme == apptheme && other.active == active;
+class HomeController extends Cubit<HomeState> {
+  HomeController()
+      : super(
+          HomeState(isLoading: true, counter: 0, apptheme: true, active: false),
+        ) {
+    Future.delayed(
+      const Duration(seconds: 2),
+    ).then((_) {
+      emit(HomeState(
+          isLoading: false, counter: state.counter, apptheme: state.apptheme, active: false));
+    });
   }
 
-  @override
-  int get hashCode => isLoading.hashCode ^ counter.hashCode ^ apptheme.hashCode;
+  void increment() => emit(state.copyWith(counter: state.counter + 1));
 
-  @override
-  String toString() => 'HomeState(isLoading: $isLoading, counter: $counter, apptheme: $apptheme, active: $active)';
+  void decrement() => emit(state.copyWith(counter: state.counter - 1));
 
-  HomeState copyWith({
-    bool? isLoading,
-    int? counter,
-    bool? apptheme,
-    bool? active,
-  }) {
-    return HomeState(
-      isLoading: isLoading ?? this.isLoading,
-      counter: counter ?? this.counter,
-      apptheme: apptheme ?? this.apptheme,
-      active: active ?? this.active,
-    );
-  }
+  void reset() => Future.delayed(const Duration(seconds: 1)).then(
+        (_) => emit(
+          HomeState(
+            isLoading: false,
+            counter: 0,
+            apptheme: state.apptheme,
+            active: false,
+          ),
+        ),
+      );
+
+  void changeTheme() => emit(state.copyWith(apptheme: !state.apptheme));
+
+  void activeToogle() => emit(state.copyWith(active: !state.active));
+
 }

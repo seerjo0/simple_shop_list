@@ -1,5 +1,5 @@
-import '../domain/home_controller.dart';
-import '../ui/home/view_models/home_viewmodel.dart';
+import 'ui/home/view_models/home_viewmodel.dart';
+import 'ui/home/widgets/home_state.dart';
 import 'routing/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

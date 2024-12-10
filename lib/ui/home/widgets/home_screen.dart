@@ -1,8 +1,11 @@
-import 'package:simple_shop_list/domain/home_controller.dart';
+import 'package:go_router/go_router.dart';
 import 'package:simple_shop_list/ui/home/view_models/home_viewmodel.dart';
+import 'package:simple_shop_list/ui/home/widgets/home_state.dart';
 import 'package:simple_shop_list/ui/add-product/add_product_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../routing/routes.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -30,21 +33,10 @@ class HomeView extends StatelessWidget {
           ),
           IconButton(
             icon: const Icon(
-              Icons.info,
+              Icons.settings,
               color: Colors.white,
             ),
-            onPressed: () {
-              showAboutDialog(
-                applicationName: "Simple Shop List",
-                context: context,
-                children: [
-                  const Text(
-                    "Developed by Sérgio Steiner",
-                    textAlign: TextAlign.center,
-                  ),
-                ],
-              );
-            },
+            onPressed: () => GoRouter.of(context).go(Routes.settings),
           ),
         ],
       ),
