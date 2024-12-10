@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'package:simple_shop_list/routing/routes.dart';
+import '../routing/routes.dart';
 import '../ui/home/widgets/home_screen.dart';
 import '../ui/settings/settings_screen.dart';
 

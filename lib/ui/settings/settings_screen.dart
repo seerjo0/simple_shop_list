@@ -16,21 +16,28 @@ class SettingsScreen extends StatelessWidget {
           onPressed: () => GoRouter.of(context).go(Routes.home),
           icon: Icon(Icons.arrow_back),
         ),
-        title: const Text('Settings'),
+        title: const Text(
+          'Settings',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.orange,
       ),
       body: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text('Dark Mode'),
+              Text(
+                'Dark Mode',
+                style: TextStyle(fontSize: 20),
+              ),
               BlocBuilder<HomeController, HomeState>(
                 builder: (context, state) {
                   return Switch(
-                    value: context.read<HomeController>().state.apptheme,
+                    value: context.read<HomeController>().state.darkModeOn,
                     onChanged: (value) {
-                      value = !context.read<HomeController>().state.apptheme;
+                      value = !context.read<HomeController>().state.darkModeOn;
                       context.read<HomeController>().changeTheme();
                     },
                   );

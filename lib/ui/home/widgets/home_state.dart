@@ -1,41 +1,38 @@
 class HomeState {
-  bool isLoading;
-  final int counter;
-  final bool apptheme;
+  final bool isLoading;
+  final bool darkModeOn;
   final bool active;
 
   HomeState({
     required this.isLoading,
-    required this.counter,
-    required this.apptheme,
+    required this.darkModeOn,
     required this.active,
   });
 
-  factory HomeState.initial() => HomeState(isLoading: true, counter: 0, apptheme: true, active: false);
+  factory HomeState.initial() => HomeState(isLoading: true, darkModeOn: true, active: false);
 
   @override
   bool operator ==(covariant HomeState other) {
     if (identical(this, other)) return true;
 
-    return other.isLoading == isLoading && other.counter == counter && other.apptheme == apptheme && other.active == active;
+    return other.isLoading == isLoading && other.darkModeOn == darkModeOn && other.active == active;
   }
 
   @override
-  int get hashCode => isLoading.hashCode ^ counter.hashCode ^ apptheme.hashCode;
+  int get hashCode => isLoading.hashCode ^ darkModeOn.hashCode;
 
   @override
-  String toString() => 'HomeState(isLoading: $isLoading, counter: $counter, apptheme: $apptheme, active: $active)';
+  String toString() => 'HomeState(isLoading: $isLoading, darkModeOn: $darkModeOn, active: $active)';
 
   HomeState copyWith({
     bool? isLoading,
     int? counter,
-    bool? apptheme,
+    bool? darkModeOn,
     bool? active,
   }) {
     return HomeState(
       isLoading: isLoading ?? this.isLoading,
-      counter: counter ?? this.counter,
-      apptheme: apptheme ?? this.apptheme,
+      darkModeOn: darkModeOn ?? this.darkModeOn,
       active: active ?? this.active,
     );
   }
