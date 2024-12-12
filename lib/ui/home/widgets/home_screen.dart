@@ -4,7 +4,6 @@ import 'package:simple_shop_list/ui/home/view_models/home_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:simple_shop_list/ui/home/widgets/home_state.dart';
-
 import '../../../routing/routes.dart';
 
 class HomeView extends StatelessWidget {
@@ -21,7 +20,7 @@ class HomeView extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.orange.shade800,
         actions: [
           IconButton(
             icon: const Icon(
@@ -81,10 +80,10 @@ class HomeView extends StatelessWidget {
                       onChanged: (value) =>
                           context.read<HomeController>().activeToogle(),
                       title: Text(
-                        'Produto $i',
+                        'Product $i',
                         style: const TextStyle(fontSize: 20),
                       ),
-                      subtitle: Text('Categoria ${i * 10}'),
+                      subtitle: Text('Category ${i * 10}'),
                       controlAffinity: ListTileControlAffinity.leading,
                     ),
                   ),
@@ -110,7 +109,7 @@ class HomeView extends StatelessWidget {
                     builder: (context) => AlertDialog(
                         title: Text('Delete all products?'),
                         content: Text(
-                            'Are you sure you want to delete all products?'),
+                            'Are you sure you want to delete the entire list?'),
                         actions: [
                           TextButton(
                             onPressed: Navigator.of(context).pop,

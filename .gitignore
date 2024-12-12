@@ -457,3 +457,5 @@ build/app/tmp/packJniLibsflutterBuildDebug/MANIFEST.MF
 build/fc0f4c859eb1dd90fdb6884dd8417ceb/_composite.stamp
 build/fc0f4c859eb1dd90fdb6884dd8417ceb/gen_dart_plugin_registrant.stamp
 build/fc0f4c859eb1dd90fdb6884dd8417ceb/gen_localizations.stamp
+/build/
+/.dart_tool/
