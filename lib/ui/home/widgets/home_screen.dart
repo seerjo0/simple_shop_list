@@ -11,23 +11,38 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController searchController = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Simple Shop List',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
+        toolbarHeight: 80,
+        title: TextField(
+          controller: searchController,
+          decoration: const InputDecoration(
+            hintText: 'Search product',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(40),
+              ),
+              borderSide: BorderSide(
+                color: Colors.orange,
+              ),
+            ),
+            prefixIcon: Icon(Icons.search),
           ),
         ),
-        centerTitle: true,
-        backgroundColor: Colors.orange.shade800,
         actions: [
-          IconButton(
-            icon: const Icon(
-              Icons.settings,
-              color: Colors.white,
-            ),
-            onPressed: () => GoRouter.of(context).go(Routes.settings),
+          BlocBuilder<HomeController, HomeState>(
+            builder: (context, state) {
+              return IconButton(
+                icon: Icon(
+                  Icons.settings,
+                  color:
+                      state.darkModeOn ? Colors.white : Colors.indigo.shade900,
+                ),
+                onPressed: () => GoRouter.of(context).go(Routes.settings),
+              );
+            },
           ),
         ],
       ),
@@ -41,6 +56,25 @@ class HomeView extends StatelessWidget {
           return SingleChildScrollView(
             child: Column(
               children: [
+                BlocBuilder<HomeController, HomeState>(
+                  builder: (context, state) => Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const SizedBox(width: 20),
+                      Text(
+                        "Simple Shop List",
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: state.darkModeOn
+                              ? Colors.white
+                              : Colors.indigo.shade900,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 20),
                 for (int i = 0; i < 20; i++)
                   Dismissible(
                     onDismissed: (direction) {},

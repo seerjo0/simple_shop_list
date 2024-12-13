@@ -16,17 +16,22 @@ class SettingsScreen extends StatelessWidget {
           onPressed: () => GoRouter.of(context).go(Routes.home),
           icon: Icon(Icons.arrow_back),
         ),
-        title: const Text(
-          'Settings',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.orange.shade800,
       ),
       body: Column(
         children: [
+          Row(
+            children: [
+              const SizedBox(width: 20),
+              Text(
+                "Settings",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
@@ -70,7 +75,8 @@ class SettingsScreen extends StatelessWidget {
                 "About Simple Shop List",
                 style: TextStyle(
                   fontSize: 20,
-                  color: state.darkModeOn ? Colors.white : Colors.indigo.shade900,
+                  color:
+                      state.darkModeOn ? Colors.white : Colors.indigo.shade900,
                 ),
               ),
             ),

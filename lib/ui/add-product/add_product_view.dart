@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:simple_shop_list/ui/home/view_models/home_viewmodel.dart';
+
+import '../home/widgets/home_state.dart';
 
 addProduct(context) {
   return showDialog<void>(
@@ -38,11 +42,8 @@ addProduct(context) {
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(20),
-                      
                     ),
-                    
                   ),
-                  
                 ),
               )
             ],
@@ -51,11 +52,21 @@ addProduct(context) {
         actions: <Widget>[
           TextButton(
             style: TextButton.styleFrom(
-              textStyle: Theme.of(context).textTheme.labelLarge,
+              textStyle: Theme
+                  .of(context)
+                  .textTheme
+                  .labelLarge,
             ),
-            child: const Text(
-              'Save',
-              style: TextStyle(color: Colors.indigo, fontSize: 15),
+            child: BlocBuilder<HomeController, HomeState>(
+              builder: (context, state) {
+                return Text(
+                  'Save',
+                  style: TextStyle(
+                    color: state.darkModeOn ? Colors.white : Colors.indigo,
+                    fontSize: 15,
+                  ),
+                );
+              },
             ),
             onPressed: () {
               Navigator.of(context).pop();
@@ -63,11 +74,20 @@ addProduct(context) {
           ),
           TextButton(
             style: TextButton.styleFrom(
-              textStyle: Theme.of(context).textTheme.labelLarge,
+              textStyle: Theme
+                  .of(context)
+                  .textTheme
+                  .labelLarge,
             ),
-            child: const Text(
-              'Cancel',
-              style: TextStyle(color: Colors.indigo, fontSize: 15),
+            child: BlocBuilder<HomeController, HomeState>(
+              builder: (context, state) {
+                return Text(
+                  'Cancel',
+                  style: TextStyle(
+                      color: state.darkModeOn ? Colors.white : Colors.indigo,
+                      fontSize: 15),
+                );
+              },
             ),
             onPressed: () {
               Navigator.of(context).pop();
