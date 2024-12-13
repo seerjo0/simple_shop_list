@@ -1,1 +1,0 @@
- /home/sergio/Files/Projects/Flutter/simple_shop_list/.dart_tool/flutter_build/dbd8bc3f94b4f2c77c8dfeb888cddfb1/native_assets.yaml: 
