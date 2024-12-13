@@ -1,16 +1,15 @@
-# simple_shop_list
+# Simple Shop List
 
-A new Flutter project.
+A simple app to organize your grocery shop list
 
-## Getting Started
+## App Preview
 
-This project is a starting point for a Flutter application.
+![image](https://github.com/user-attachments/assets/40850b34-ee76-4c67-8ef8-2e61be468951)
 
-A few resources to get you started if this is your first Flutter project:
+This project is a study of use case to apply the Flutter framework technology.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Thanks to getting here! :)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Regards!
+
+Sérgio Steiner.
